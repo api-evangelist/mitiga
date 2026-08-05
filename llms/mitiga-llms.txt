@@ -1,0 +1,84 @@
+
+llms.txt
+# www.mitiga.io
+
+> Mitiga is the leader in Zero-Impact Breach Prevention � the only approach that prevents cyberattacks from causing business impact.
+
+## Let them come
+
+Use this file as a curated guide to Mitiga's public website. For exhaustive URL discovery, use the XML sitemap. Priority topics include Cloud Detection and Response, CDR, AI Detection and Response, AIDR, SaaS security, cloud incident response, managed threat hunting, identity-based attacks, token abuse, OAuth abuse, API exfiltration, AI agents and agentic SOC operations.
+
+## Core pages
+
+- [Home](https://www.mitiga.io/): Mitiga positioning and overview of Zero-Impact Breach Prevention across Cloud, SaaS, AI and Identity.
+
+- [Mitiga AI-native CDR platform](https://www.mitiga.io/platform): Platform overview for real-time cloud detection and response, panoramic awareness, attack decoding, containment, Cloud Security Data Lake, TDIR, CIRA and the Investigation Workbench.
+
+- [Helios AI](https://www.mitiga.io/helios-ai): Mitiga's AI SOC analyst and AIDR capabilities for triage, investigation, response and AI-speed attacks.
+
+- [Deploy CDR with CNAPP](https://www.mitiga.io/deploy-cdr-with-cnapp): Guidance on pairing Cloud Detection and Response with CNAPP to move from posture management to active cloud defense.
+
+- [Cloud security managed services](https://www.mitiga.io/services): 24/7 managed CDR, managed threat hunting and cloud and SaaS incident response.
+
+- [Advisory session on modern cloud attacks](https://www.mitiga.io/mitiga-advisory-session-on-modern-cloud-attacks): Advisory session on OAuth abuse, token compromise, SaaS integrations, API exfiltration and identity-driven cloud attacks.
+
+- [Request a demo](https://www.mitiga.io/demo): Form page for seeing the Mitiga platform and use cases.
+
+## Research, resources and media
+
+- [Resource Hub](https://www.mitiga.io/resources): Curated research, case studies, practical guides, videos, whitepapers, news and press releases.
+
+- [Mitiga Blog](https://www.mitiga.io/blog): Threat intelligence, cloud IR insights, SaaS security analysis, AIDR commentary and cloud attack research.
+
+- [Mitiga Labs](https://www.mitiga.io/mitiga-labs): Research hub for real-world cloud, SaaS, AI and identity attacks.
+
+- [Mitiga Mic](https://www.mitiga.io/mitiga-mic): Video series with security leaders, researchers and practitioners.
+
+- [Videos](https://www.mitiga.io/resources/videos): On-demand webinars, demos, conference talks and expert discussions.
+
+- [Video testimonials](https://www.mitiga.io/resources/video-testimonials): Customer and expert commentary on Cloud Detection and Response.
+
+- [What We Saw in 2025. What Comes Next](https://www.mitiga.io/resources/what-we-saw-in-2025-what-comes-next): Annual Mitiga Labs report on cloud, SaaS, identity, OAuth, API and AI attack trends.
+
+- [5-10-15 Cloud Attack Challenge](https://www.mitiga.io/mitiga-cloud-attack-challenge): Framework for detecting, triaging and mitigating cloud attacks before impact.
+
+- [Stop SaaS attacks](https://www.mitiga.io/resources/salesforce-attack): Salesforce and SaaS attack protection page covering connected app abuse, API exfiltration and SaaS detection.
+
+## Current analysis and recent research
+
+- [Claude Mythos shrinks the remediation window](https://www.mitiga.io/blog/claude-mythos-remediation-window-compensating-controls): Analysis of AI-compressed exploit timelines and compensating controls.
+
+- [ShinyHunters, Snowflake, and Rockstar: Another SaaS Leads to Compromise](https://www.mitiga.io/blog/shinyhunters-snowflake-and-rockstar-another-saas-leads-to-compromise): SaaS token abuse and supply chain breach analysis.
+
+- [Beyond Standard Data Lakes: Why We Built the Backbone of the Zero-Impact SOC](https://www.mitiga.io/blog/beyond-standard-data-lakes-why-we-built-the-backbone-of-the-zero-impact-soc): Why forensic data depth matters for a Zero-Impact SOC.
+
+- [Defining Blast Radius in Cloud Incidents](https://www.mitiga.io/blog/defining-blast-radius-in-cloud-incidents): Practitioner guidance for scoping impact and containing cloud incidents.
+
+- [The Unfixable Gap: Why Perfect SaaS Posture is a Dangerous Illusion](https://www.mitiga.io/blog/the-unfixable-gap-why-perfect-saas-posture-is-a-dangerous-illusion): Practical argument for runtime defense when SaaS posture cannot be fixed fast enough.
+
+- [007: License to SKILL P.2 - Slack Compromise Through Claude Code](https://www.mitiga.io/blog/007-license-to-skill-p-2-slack-compromise-through-claude-code): Research on AI agent skills and Slack compromise paths.
+
+- [The Domino Effect](https://www.mitiga.io/blog/the-domino-effect): Detection and response analysis for software supply chain compromise through automated development pipelines.
+
+- [Top Cybersecurity Trends for RSAC 2026](https://www.mitiga.io/blog/top-cybersecurity-trends-for-rsac-2026-ai-cloud-identity-and-zero-impact-security): Executive view of AI, cloud identity, autonomous SOC and resilience themes.
+
+- [Beyond the Org Chart: Securing the Interaction Graph](https://www.mitiga.io/blog/beyond-the-org-chart-securing-the-interaction-graph-with-zero-impact-defense): Analysis of identity, AI agent interaction graphs and agentic organization risk.
+
+## Company and trust
+
+- [Company](https://www.mitiga.io/company): Company overview, leadership, recognition, contact information and emergency incident response details.
+
+- [Careers](https://www.mitiga.io/company/careers): Open roles and cloud security careers at Mitiga.
+
+- [News](https://www.mitiga.io/news): Media coverage and external commentary.
+
+- [Press releases](https://www.mitiga.io/press-release): Company announcements, funding news, product updates, partner news and awards.
+
+- [Terms of use](https://www.mitiga.io/terms-of-use): Website terms of use.
+
+- [Privacy policy](https://www.mitiga.io/privacy-policy): Mitiga website privacy practices.
+
+## Optional
+
+- [Testimonials](https://www.mitiga.io/resources/video-testimonials): Customer and expert reviews.
+

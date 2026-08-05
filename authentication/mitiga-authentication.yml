@@ -1,0 +1,82 @@
+generated: '2026-08-04'
+method: probed
+source: https://api.mitiga.cloud/.well-known/oauth-authorization-server
+docs: null
+description: >-
+  Mitiga publishes no public developer documentation, but its product API gateway
+  (api.mitiga.cloud) serves an anonymous RFC 8414 authorization-server metadata document.
+  This profile is derived entirely from that document and the OIDC discovery document on
+  the identity host it points at. No OpenAPI securitySchemes were available to derive from.
+summary:
+  types: [oauth2, openIdConnect]
+  api_key_in: []
+  oauth2_flows: [clientCredentials, authorizationCode, deviceCode, tokenExchange, refreshToken]
+  identity_provider: Auth0 (EU tenant)
+  proof_of_possession: DPoP (ES256)
+  pkce: true
+schemes:
+- name: oauth2
+  type: oauth2
+  issuer: https://api.mitiga.cloud/
+  sources: [well-known/mitiga-oauth-authorization-server.json]
+  endpoints:
+    authorization: https://api.mitiga.cloud/oauth-2/authorize
+    token: https://api.mitiga.cloud/oauth-2/token
+    userinfo: https://api.mitiga.cloud/oauth-2/userinfo
+    registration: https://api.mitiga.cloud/oauth-2/oidc/register
+    jwks: https://api.mitiga.cloud/.well-known/jwks.json
+    device_authorization: https://auth.mitiga.cloud/oauth/device/code
+    revocation: https://auth.mitiga.cloud/oauth/revoke
+    backchannel_authentication: https://auth.mitiga.cloud/bc-authorize
+    mfa_challenge: https://auth.mitiga.cloud/mfa/challenge
+  grant_types:
+  - client_credentials
+  - authorization_code
+  - refresh_token
+  - password
+  - implicit
+  - urn:ietf:params:oauth:grant-type:device_code
+  - urn:ietf:params:oauth:grant-type:token-exchange
+  - urn:ietf:params:oauth:grant-type:jwt-bearer
+  - http://auth0.com/oauth/grant-type/password-realm
+  - http://auth0.com/oauth/grant-type/passwordless/otp
+  - http://auth0.com/oauth/grant-type/mfa-oob
+  - http://auth0.com/oauth/grant-type/mfa-otp
+  - http://auth0.com/oauth/grant-type/mfa-recovery-code
+  token_endpoint_auth_methods:
+  - client_secret_basic
+  - client_secret_post
+  - private_key_jwt
+  - none
+  token_endpoint_auth_signing_algs: [RS256, RS384, PS256]
+  id_token_signing_algs: [HS256, RS256, PS256]
+  code_challenge_methods: [S256, plain]
+  response_types: [code, token, id_token, code token, code id_token, token id_token, code token id_token]
+  response_modes: [query, fragment, form_post]
+  dpop_signing_algs: [ES256]
+  dynamic_client_registration: true
+  backchannel_logout: true
+  global_token_revocation: true
+- name: openIdConnect
+  type: openIdConnect
+  issuer: https://auth.mitiga.cloud/
+  openIdConnectUrl: https://auth.mitiga.cloud/.well-known/openid-configuration
+  sources: [well-known/mitiga-openid-configuration.json]
+notes:
+- >-
+  Machine-to-machine access is possible in principle — client_credentials is an advertised
+  grant type — but no public documentation describes how a customer obtains a client id
+  and secret, and no scope beyond the standard OIDC set is advertised anonymously.
+- >-
+  The customer console at https://mitiga.cloud redirects to the Auth0 universal login on
+  auth.mitiga.cloud; every product route behind the Kong gateway returns
+  "no Route matched with those values" to an unauthenticated caller.
+x-evidence:
+- url: https://api.mitiga.cloud/.well-known/oauth-authorization-server
+  http_status: 200
+  content_type: application/json
+  fetched: '2026-08-04'
+- url: https://auth.mitiga.cloud/.well-known/openid-configuration
+  http_status: 200
+  content_type: application/json
+  fetched: '2026-08-04'

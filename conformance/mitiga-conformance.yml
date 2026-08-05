@@ -1,0 +1,95 @@
+generated: '2026-08-04'
+method: probed
+source: https://api.mitiga.cloud/.well-known/oauth-authorization-server
+description: >-
+  Cross-cutting standards conformance for Mitiga. The identity/authorization findings are
+  derived from the anonymous RFC 8414 metadata published on the product API host; the
+  compliance findings are read from the SafeBase-hosted trust center at trust.mitiga.io.
+  No OpenAPI, AsyncAPI, GraphQL SDL or JSON Schema is published, so no contract-level
+  standards could be asserted.
+standards:
+- id: oauth2
+  conforms: true
+  evidence: authorization-server metadata advertises authorization, token and revocation endpoints
+  source: https://api.mitiga.cloud/.well-known/oauth-authorization-server
+- id: rfc8414-authorization-server-metadata
+  conforms: true
+  evidence: /.well-known/oauth-authorization-server returns 200 with a conformant metadata document
+  source: https://api.mitiga.cloud/.well-known/oauth-authorization-server
+- id: oidc-discovery
+  conforms: true
+  evidence: /.well-known/openid-configuration returns 200 on auth.mitiga.cloud
+  source: https://auth.mitiga.cloud/.well-known/openid-configuration
+- id: rfc7636-pkce
+  conforms: true
+  evidence: code_challenge_methods_supported includes S256
+- id: rfc9449-dpop
+  conforms: true
+  evidence: dpop_signing_alg_values_supported includes ES256
+- id: rfc8693-token-exchange
+  conforms: true
+  evidence: grant_types_supported includes urn:ietf:params:oauth:grant-type:token-exchange
+- id: rfc8628-device-authorization-grant
+  conforms: true
+  evidence: device_authorization_endpoint published; device_code grant advertised
+- id: rfc7591-dynamic-client-registration
+  conforms: true
+  evidence: registration_endpoint published at https://api.mitiga.cloud/oauth-2/oidc/register
+- id: rfc7517-jwks
+  conforms: true
+  evidence: jwks_uri returns 200 with an RSA signing key set
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returns 404 on www.mitiga.io, mitiga.io and api.mitiga.cloud
+- id: rfc8615-well-known-agent-card
+  conforms: false
+  evidence: no A2A agent card at /.well-known/agent-card.json or /.well-known/agent.json on any host
+- id: openapi
+  conforms: false
+  evidence: no OpenAPI/Swagger document at any probed path on the API, docs or marketing hosts
+- id: asyncapi
+  conforms: false
+  evidence: no published event or webhook catalog found
+- id: rfc9457-problem-details
+  conforms: unknown
+  evidence: API error bodies are gateway-level only; no documented error envelope
+compliance:
+- id: soc2-type-2
+  conforms: true
+  evidence: report listed on the trust center
+  source: https://trust.mitiga.io/
+- id: iso-27001-2022
+  conforms: true
+  evidence: certificate and Statement of Applicability listed on the trust center
+  source: https://trust.mitiga.io/
+- id: csa-star-level-1
+  conforms: true
+  evidence: CAIQ self-assessment listed on the trust center
+  source: https://trust.mitiga.io/
+- id: hipaa
+  conforms: true
+  evidence: listed on the trust center
+  source: https://trust.mitiga.io/
+- id: gdpr
+  conforms: true
+  evidence: listed on the trust center; DPA and subprocessor list published
+  source: https://trust.mitiga.io/
+- id: ccpa
+  conforms: true
+  evidence: listed on the trust center
+  source: https://trust.mitiga.io/
+- id: microsoft-sspa
+  conforms: true
+  evidence: listed on the trust center
+  source: https://trust.mitiga.io/
+- id: aws-qualified-software
+  conforms: true
+  evidence: listed on the trust center
+  source: https://trust.mitiga.io/
+x-evidence:
+- url: https://api.mitiga.cloud/.well-known/oauth-authorization-server
+  http_status: 200
+  fetched: '2026-08-04'
+- url: https://trust.mitiga.io/
+  http_status: 200
+  fetched: '2026-08-04'

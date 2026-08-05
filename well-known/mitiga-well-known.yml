@@ -1,0 +1,82 @@
+generated: '2026-08-04'
+method: probed
+source: https://api.mitiga.cloud/.well-known/oauth-authorization-server
+description: >-
+  Well-known discovery surface probed across every Mitiga host found during contract
+  discovery. The marketing host (www.mitiga.io) publishes no .well-known documents, but
+  the product API host (api.mitiga.cloud) and its Auth0-backed identity host
+  (auth.mitiga.cloud) both publish anonymous RFC 8414 / OIDC discovery metadata.
+hosts:
+- host: https://api.mitiga.cloud
+  role: product API gateway (Kong) for the Mitiga cloud detection and response platform
+  documents:
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: application/json
+    file: mitiga-oauth-authorization-server.json
+    spec: RFC 8414
+  - path: /.well-known/jwks.json
+    status: 200
+    content_type: application/json
+    spec: RFC 7517
+    note: not saved — rotating key material, referenced from the authorization server metadata
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /.well-known/security.txt
+    status: 404
+- host: https://auth.mitiga.cloud
+  role: identity host (Auth0 EU tenant) referenced by the API authorization server metadata
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: application/json
+    file: mitiga-openid-configuration.json
+    spec: OpenID Connect Discovery 1.0
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: application/json
+    note: same document as the openid-configuration on this host
+  - path: /.well-known/jwks.json
+    status: 200
+- host: https://www.mitiga.io
+  role: marketing and research site (Webflow)
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /llms.txt
+    status: 200
+    content_type: text/plain
+    file: ../llms/mitiga-llms.txt
+- host: https://trust.mitiga.io
+  role: trust center (SafeBase-hosted portal)
+  documents:
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    note: >-
+      belongs to the SafeBase platform (issuer https://app.safebase.io/api/mcp), not to
+      Mitiga — recorded for completeness, not saved as a Mitiga artifact
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/security.txt
+    status: 404
+x-evidence:
+  fetched: '2026-08-04'
+  probes: 30

@@ -1,0 +1,90 @@
+generated: '2026-08-04'
+method: probed
+source: https://api.mitiga.cloud/.well-known/oauth-authorization-server
+docs: null
+description: >-
+  The only scopes Mitiga advertises anonymously are the standard OpenID Connect and
+  Auth0 profile-claim scopes carried in the authorization-server metadata on its API
+  host. No product-specific scopes (alerts, investigations, data lake, response actions)
+  are published; those would require authenticated introspection of a customer tenant.
+  Recorded honestly rather than inferred.
+schemes:
+- name: oauth2
+  source: well-known/mitiga-oauth-authorization-server.json
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://api.mitiga.cloud/oauth-2/authorize
+    tokenUrl: https://api.mitiga.cloud/oauth-2/token
+  - flow: clientCredentials
+    tokenUrl: https://api.mitiga.cloud/oauth-2/token
+  - flow: deviceCode
+    deviceAuthorizationUrl: https://auth.mitiga.cloud/oauth/device/code
+    tokenUrl: https://api.mitiga.cloud/oauth-2/token
+scopes:
+- scope: openid
+  description: Request an ID token — OpenID Connect authentication.
+  standard: true
+  flows: [authorizationCode, deviceCode]
+  sources: [well-known/mitiga-oauth-authorization-server.json]
+- scope: profile
+  description: Basic profile claims for the authenticated user.
+  standard: true
+  flows: [authorizationCode, deviceCode]
+  sources: [well-known/mitiga-oauth-authorization-server.json]
+- scope: offline_access
+  description: Issue a refresh token for long-lived access.
+  standard: true
+  flows: [authorizationCode, deviceCode]
+  sources: [well-known/mitiga-oauth-authorization-server.json]
+- scope: email
+  description: The user's email address.
+  standard: true
+  sources: [well-known/mitiga-oauth-authorization-server.json]
+- scope: email_verified
+  description: Whether the user's email address has been verified.
+  standard: true
+  sources: [well-known/mitiga-oauth-authorization-server.json]
+- scope: name
+  description: The user's full name claim.
+  standard: true
+  sources: [well-known/mitiga-oauth-authorization-server.json]
+- scope: given_name
+  description: The user's given name claim.
+  standard: true
+  sources: [well-known/mitiga-oauth-authorization-server.json]
+- scope: family_name
+  description: The user's family name claim.
+  standard: true
+  sources: [well-known/mitiga-oauth-authorization-server.json]
+- scope: nickname
+  description: The user's nickname claim.
+  standard: true
+  sources: [well-known/mitiga-oauth-authorization-server.json]
+- scope: picture
+  description: The user's profile picture URL claim.
+  standard: true
+  sources: [well-known/mitiga-oauth-authorization-server.json]
+- scope: created_at
+  description: The account creation timestamp claim.
+  standard: true
+  sources: [well-known/mitiga-oauth-authorization-server.json]
+- scope: identities
+  description: Linked identity-provider identities for the user.
+  standard: false
+  sources: [well-known/mitiga-oauth-authorization-server.json]
+- scope: phone
+  description: The user's phone number claims.
+  standard: true
+  sources: [well-known/mitiga-oauth-authorization-server.json]
+- scope: address
+  description: The user's address claim.
+  standard: true
+  sources: [well-known/mitiga-oauth-authorization-server.json]
+gaps:
+- >-
+  No product/resource scopes are published. An integrator cannot tell from the public
+  surface what a client_credentials token is authorized to do against the Mitiga platform.
+x-evidence:
+- url: https://api.mitiga.cloud/.well-known/oauth-authorization-server
+  http_status: 200
+  fetched: '2026-08-04'

@@ -1,0 +1,69 @@
+generated: '2026-08-04'
+method: searched
+probe: true
+source: https://trust.mitiga.io/
+url: https://trust.mitiga.io/
+platform: SafeBase
+description: >-
+  Mitiga runs a public trust center at trust.mitiga.io (SafeBase-hosted) listing its
+  certifications, compliance frameworks, security controls, subprocessors and gated
+  document requests. Certification artifacts (SOC 2 Type 2, ISO/IEC 27001 certificate and
+  SoA, CAIQ, penetration test reports) are listed publicly and released on request.
+certifications:
+- SOC 2 Type 2
+- ISO/IEC 27001
+- ISO/IEC 27001:2022
+- CSA STAR Level 1
+- HIPAA
+- GDPR
+- CCPA
+- Microsoft SSPA
+- AWS Qualified Software
+documents:
+- name: SOC 2 Type 2 report
+  access: request
+- name: ISO/IEC 27001 certificate
+  access: request
+- name: ISO/IEC 27001 Statement of Applicability
+  access: request
+- name: CAIQ self-assessment
+  access: request
+- name: Penetration test report
+  access: request
+- name: Data Processing Agreement
+  access: listed
+- name: Subprocessor list
+  access: listed
+controls_noted:
+- Software Development Lifecycle — branch protection, CI/CD vulnerability scanning, peer review
+- Vulnerability and patch management
+- Annual external penetration testing plus an in-house research team
+- IDS/IPS on critical infrastructure
+- Continuous monitoring
+contacts:
+- DPO@mitiga.io
+- privacy@mitiga.io
+notes:
+- >-
+  No vulnerability disclosure or bug bounty program is published — /.well-known/security.txt
+  returns 404 on every Mitiga host and the trust center carries no researcher-facing
+  reporting channel. That is a gap for a cloud security vendor, and the provider's to close.
+evidence:
+- source: https://trust.mitiga.io/
+  keywords:
+  - soc 2 type 2
+  - iso/iec 27001
+  - iso/iec 27001:2022
+  - csa star level 1
+  - hipaa
+  - gdpr
+  - ccpa
+  - sspa
+  - caiq
+x-evidence:
+- url: https://trust.mitiga.io/
+  http_status: 200
+  fetched: '2026-08-04'
+- url: https://www.mitiga.io/.well-known/security.txt
+  http_status: 404
+  fetched: '2026-08-04'

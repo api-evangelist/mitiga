@@ -1,23 +1,108 @@
 aid: mitiga
 name: Mitiga
-description: 'Mitiga is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  Mitiga is a cloud and SaaS security company built around what it calls Zero-Impact Breach
+  Prevention — an AI-native Cloud Detection and Response (CDR) platform that ingests,
+  normalizes and retains activity logs from roughly 100 cloud, SaaS, identity and AI
+  platforms in a Cloud Security Data Lake with 1,000+ days of forensic retention, then
+  detects, investigates and helps contain active attacks. The company was founded by cloud
+  incident responders and sells 24/7 managed cloud detection and response, managed threat
+  hunting, and emergency cloud and SaaS incident response alongside the platform, with
+  Helios AI as its AI SOC analyst layer. Monitoring is agentless and API-based: Mitiga is a
+  heavy consumer of other providers' APIs rather than a publisher of a public developer
+  program. Its own product API runs at api.mitiga.cloud behind a Kong gateway and an Auth0
+  OAuth 2.0 authorization server, but no public reference or machine-readable contract is
+  published.
+image: https://cdn.prod.website-files.com/68b741896c644c7106024a46/68e43e28a7c652f90cd2024c_Mitiga-Open-Grpah.png
 url: https://raw.githubusercontent.com/api-evangelist/mitiga/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-04'
 modified: '2026-08-04'
 tags:
 - Company
-apis: []
+- Security
+- Cloud Security
+- SaaS Security
+- Cloud Detection and Response
+- Incident Response
+- Threat Detection
+- Identity Security
+- Managed Security Services
+- Artificial Intelligence
+apis:
+- aid: mitiga:mitiga-platform-api
+  name: Mitiga Platform API
+  description: >-
+    The product API behind the Mitiga cloud detection and response platform. The host is
+    live and fronted by a Kong gateway, and it publishes an anonymous RFC 8414
+    authorization-server metadata document, so the OAuth 2.0 / OpenID Connect surface is
+    verifiable from the outside. Every product route returns "no Route matched with those
+    values" to an unauthenticated caller, and Mitiga publishes no reference, no OpenAPI and
+    no developer portal — the contract is reachable only inside a customer tenant.
+  humanURL: https://www.mitiga.io/platform
+  baseURL: https://api.mitiga.cloud
+  tags:
+  - Cloud Detection and Response
+  - Security
+  - Incident Response
+  properties:
+  - type: Authentication
+    url: authentication/mitiga-authentication.yml
+  - type: OAuthScopes
+    url: scopes/mitiga-scopes.yml
+  - type: WellKnown
+    url: well-known/mitiga-well-known.yml
+  x-evidence:
+    fetched: '2026-08-04'
+    probes:
+    - url: https://api.mitiga.cloud/.well-known/oauth-authorization-server
+      status: 200
+    - url: https://api.mitiga.cloud/openapi.json
+      status: 404
+    - url: https://api.mitiga.cloud/
+      status: 404
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/mitiga-domain-security.yml
 - type: Website
-  url: https://www.hiive.com/securities/mitiga-stock
+  url: https://www.mitiga.io/
+- type: Blog
+  url: https://www.mitiga.io/blog
+- type: BlogRSS
+  url: https://www.mitiga.io/blog/rss.xml
+- type: GitHubOrganization
+  url: https://github.com/mitiga
+- type: Login
+  url: https://mitiga.cloud/
+- type: Support
+  url: https://www.mitiga.io/company
+- type: TermsOfService
+  url: https://www.mitiga.io/terms-of-use
+- type: PrivacyPolicy
+  url: https://www.mitiga.io/privacy-policy
+- type: Compliance
+  url: https://trust.mitiga.io/
+- type: TrustCenter
+  url: security/mitiga-trust-center.yml
+- type: LLMsTxt
+  url: llms/mitiga-llms.txt
+- type: WellKnown
+  url: well-known/mitiga-well-known.yml
+- type: Authentication
+  url: authentication/mitiga-authentication.yml
+- type: OAuthScopes
+  url: scopes/mitiga-scopes.yml
+- type: Conformance
+  url: conformance/mitiga-conformance.yml
+x-enrichment:
+  date: '2026-08-04'
+  status: enriched
+  artifacts_added: 9
+  pass: local-v1
