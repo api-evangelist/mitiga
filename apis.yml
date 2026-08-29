@@ -13,6 +13,17 @@ description: >-
   program. Its own product API runs at api.mitiga.cloud behind a Kong gateway and an Auth0
   OAuth 2.0 authorization server, but no public reference or machine-readable contract is
   published.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://cdn.prod.website-files.com/68b741896c644c7106024a46/68e43e28a7c652f90cd2024c_Mitiga-Open-Grpah.png
 url: https://raw.githubusercontent.com/api-evangelist/mitiga/refs/heads/main/apis.yml
 x-type: company
